@@ -1,0 +1,89 @@
+Java第一次作业
+                      第一个应用程序
+数啤酒瓶童谣（nursery）
+1.BeerSong.java
+public class BeerSong
+{
+	public static void main(String[]args)
+	{
+		int BeerNum = 99;
+		String word = "bottles";//注意单复数
+		while (BeerNum > 0)
+		{
+			if (BeerNum == 1) 
+
+			{
+				word = "bottle";
+            }
+			System.out.print(BeerNum + " "+ word +" of beer on the wall，");//注意变量的输出格式
+			System.out.println(BeerNum + " " + word + " of beer.");//要换行
+			System.out.println("Take one down");
+			System.out.println("Pass it around.");
+			BeerNum = BeerNum - 1;
+		if (BeerNum > 0)
+			{
+				System.out.println(BeerNum + " " + word + "of beer on the wall.");
+			}
+			else
+			{				System.out.println("No more bottles of beer on  the wall.");
+			}//else结束	
+	}//while结束
+	}//main结束
+}//class结束
+2. BeerSong.java运行结果
+99 bottles of beer on the wall，99 bottles of beer.
+Take one down
+Pass it around.
+98 bottlesof beer on the wall.
+98 bottles of beer on the wall，98 bottles of beer.
+Take one down
+Pass it around.
+97 bottlesof beer on the wall.
+……..
+2 bottles of beer on the wall，2 bottles of beer.
+Take one down
+Pass it around.
+1 bottlesof beer on the wall.
+1 bottle of beer on the wall，1 bottle of beer.
+Take one down
+Pass it around.
+No more bottles of beer on  the wall.
+ 
+数组越界问题
+源代码：
+public class Array {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int a[]= {1,2,3};
+System.out.println(a[2]);
+System.out.println(a[6]);
+}
+
+}
+
+1.当未越界时
+ 3
+2.当越界时
+ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 6
+	at Array.main(Array.java:8)
+
+返回对象地址
+1.利用HashCode()函数
+源代码
+public class Adress {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Adress a=new Adress();
+		System.out.println(a);
+		System.out.println(System.identityHashCode(a));//identityHashCode()函数返回对象地址
+	}
+}
+2.运行结果
+ Adress@7852e922
+2018699554
+
+
+
+
