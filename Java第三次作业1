@@ -1,0 +1,17 @@
+Java第三次作业1
+1.包装类和基本数据类型的关系
+区别：（1）包装类是对象,拥有方法和字段.对象的调用都是通过引用对象的地址，
+基本类型是直接储存数值。
+（2）包装类是引用传递 而基本类型是值传递
+（3）变量的值存储在栈里，而对象存储在堆里（当需要往List，HashMap中放东西时，像int，double这种基本类型是放不进去的，因为容器都是装object的，这是就需要这些基本类型的外覆类了）
+int是基本类型，直接存数值
+Integer是int的包装类，是类，拥有方法；
+Java有八种基本数据类型，对应八种包装类：
+short Short
+int Integer
+long Long
+char Character
+byte Byte
+float Float
+boolean Boolean
+double Double
