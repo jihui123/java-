@@ -1,0 +1,135 @@
+      开公司系列之发工资
+程序要求：
+1.公司要有员工，经理，和股东三种角色。
+2.每个角色都有姓名，工资，生日等属性。
+3.每月15日发工资，普通员工仅发工资，经理除工资外还有提成，股东只有年终分红
+代码如下：
+package Company;
+//公共员工类作为父类（有公共属性）
+public abstract class Employee {
+	private String name;//姓名
+    private int birthday;//生日
+    private int salary;//工资
+    
+    public Employee(){}
+    public Employee(String name,int birthday,int salary){
+    	this.name=name;
+    	this.birthday=birthday;
+    	this.salary = salary;
+    }
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(int id) {
+		this.birthday = id;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+    public abstract void work();
+	}
+  
+  package Company;
+//员工类
+
+public class worker extends Employee{ //继承父类Employee
+	public worker(){}
+	public worker(String name,int birthday,int salary){
+		super(name,birthday,salary);
+	}
+	public void work() {
+	}
+}
+package Company;
+//经理类
+
+public class Manager extends Employee {   //继承父类Employee
+
+private int bounds;//奖金
+    
+    public Manager(){}//无参构造
+    public Manager(String name,int birthday,int salary,int bounds){//有参构造
+    	super(name,birthday,salary);//传参
+    	this.bounds=bounds;//传参
+    }
+
+	public int getBounds() {
+		return bounds;
+	}
+	public void setBounds(int bounds) {
+		this.bounds = bounds;
+	}
+	public void work() {
+		System.out.println("和客户谈需求，每谈成功一次加一次提成");
+	}
+}
+package Company;
+//股东类
+public class CEO extends Employee{  //继承父类Employee
+	public CEO(){}
+	public CEO(String name,int birthday,int salary){
+		super(name,birthday,salary);
+	}
+	public void work() {
+		
+	}	
+}
+
+package Company;
+//实现类
+public class EmployeeMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    //多态实现
+		 System.out.println("***************公司各层员工工资信息如下***************");
+		Employee emp = new worker();
+        emp.setName("李春男");
+        emp.setBirthday(19890206);
+        emp.setSalary(5000);
+        System.out.println("员工姓名："+emp.getName()+"\t生日："+emp.getBirthday()+"\t每月薪金"+emp.getSalary());
+        emp.work();
+        System.out.println("********************************");
+      
+       
+        Manager man = new Manager();
+        man.setName("杨莉");
+        man.setBirthday(19920619);
+        man.setSalary(4000);
+        man.setBounds(800);
+        System.out.println("经理姓名："+man.getName()+"\t生日："+man.getBirthday()+"\t每月底薪金"+man.getSalary()+"\t提成"+man.getBounds());
+        man.work();
+        //System.out.println("经理每次提成固定为800");
+        System.out.println("*********************************");
+        
+        CEO man1 = new CEO();
+        man1.setName("张晨浩");
+        man1.setBirthday(19801105);
+        man1.setSalary(0);
+        System.out.println("股东姓名："+ man1.getName()+"\t生日："+man1.getBirthday()+"\t每月薪金"+man1.getSalary());
+        man1.work();
+        System.out.println("股东没有月工资，仅有年终分红，为年利润的10%");
+        System.out.println("*********************************");
+	}
+}
+ 运行结果：
+ ***************公司各层员工工资信息如下***************
+员工姓名：李春男	生日：19890206	每月薪金5000
+********************************
+经理姓名：杨莉	生日：19920619	每月底薪金4000	提成800
+和客户谈需求，每谈成功一次加一次提成
+*********************************
+股东姓名：张晨浩	生日：19801105	每月薪金0
+股东没有月工资，仅有年终分红，为年利润的10%
+*********************************
+
+  
