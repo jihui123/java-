@@ -1,0 +1,113 @@
+Java作业二（汽车类）
+1.源代码
+import java.util.Scanner;
+
+
+public class Car {
+	  /*----属性------*/
+	char name[] = new char[30];//用数组定义汽车名（汽车型号）
+    int tank;//存储汽油量/L
+	int oilConsumption;//油耗L/KM
+	 Scanner input = new Scanner(System.in);
+     Car()//构造函数对成员变量进行初始化
+     {
+    	  System.out.println("请输入该汽车型号为:");
+    	// name=input.nextchar();
+    	//name[30] =input.next();
+    	  name=input.next().toCharArray();
+    	 System.out.println("请输入该汽车存储汽油量:");
+    	tank=input.nextInt();
+    	System.out.println("请输入该汽车每公里行驶所耗油量:");
+    	//oilConsumption=input.nextInt(5);
+    	oilConsumption=input.nextInt();
+       }
+     
+     /*----行为------*/
+	int add_gas()//给汽车加油
+	{int add_gas1;
+		if(tank<=10)
+		{	 System.out.println("警告！！！该车油量较低，请及时给车加油");
+		 System.out.println("请输入要加的油量（L）：");
+			add_gas1=input.nextInt();
+			tank=tank+add_gas1;
+			 System.out.println("加油后油量有"+tank+"L，可继续行驶");	
+		}
+		else
+			 System.out.println("该车油量充足，无需加油，现有油量油量"+tank+"L");	
+		return 1;
+		}
+
+	int can_run()//汽车能开
+	{
+		if(tank==0)
+			 System.out.println("警告！！！该车油量耗尽，已不能继续行驶");
+		else
+			 System.out.println("该车现有油量："+tank+"L,可继续行驶");
+			 	return 1;
+	}
+	int use_gas()//汽车行驶耗油
+	{int use_gas1;//行驶后耗油量
+	int time;//行驶时间h
+	int add_gas1;
+	// Car c1=new Car();
+		 System.out.println("该车行驶总的时间有（h)：");
+		 time=input.nextInt();
+		 use_gas1=time*oilConsumption;
+		 System.out.println("该车行驶："+time+"h,消耗了"+ use_gas1+"L油");
+			tank=tank- use_gas1;
+			 System.out.println("现有油量油量"+tank+"L");	
+			// c1.add_gas();
+			 if(tank<=10)
+				{	
+					System.out.println("警告！！！该车油量较低，请及时给车加油");
+					 System.out.println("请输入要加的油量（L）：");
+						add_gas1=input.nextInt();
+						tank=tank+add_gas1;
+						 System.out.println("加油后油量有"+tank+"L，可继续行驶");	
+				}
+				else
+					 System.out.println("该车还剩油量充足，可继续行驶");		
+				return 1;
+		}
+
+/*------实现代码（main函数）------*/
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    Car c1=new Car();
+    System.out.println("该汽车基本信息如下:");
+    System.out.println("该汽车型号为:");
+    for(int i=0;i<c1.name.length;i++)//输出汽车名
+    {
+    	System.out.println(c1.name[i]);//注意是name[i]
+    }
+    System.out.println("该汽车存储汽油量:"+c1.tank+"L");
+	System.out.println("该汽车每公里行驶所耗油量:"+c1.oilConsumption+"L/KM");
+	c1.add_gas();
+	c1.can_run();
+	c1.use_gas();
+	}
+
+}
+2.运行结果
+请输入该汽车型号为:
+宝马
+请输入该汽车存储汽油量:
+100
+请输入该汽车每公里行驶所耗油量:
+15
+该汽车基本信息如下:
+该汽车型号为:
+宝
+马
+该汽车存储汽油量:100L
+该汽车每公里行驶所耗油量:15L/KM
+该车油量充足，无需加油，现有油量油量100L
+该车现有油量：100L,可继续行驶
+该车行驶总的时间有（h)：
+6
+该车行驶：6h,消耗了90L油
+现有油量油量10L
+警告！！！该车油量较低，请及时给车加油
+请输入要加的油量（L）：
+80
+现有油量油量90L
