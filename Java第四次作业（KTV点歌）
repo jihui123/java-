@@ -1,0 +1,190 @@
+package ListTest;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class KTVByLinkedList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("---------------欢迎来到KTV点歌系统------------------");
+        System.out.println("0------添加歌曲至列表");
+        System.out.println("1------将歌曲至顶");
+        System.out.println("2------将歌曲前移一位");
+        System.out.println("3------退出系统");
+        System.out.println("4------将歌曲乱序");
+        //接受用户的输入
+        System.out.println("请输入数字来实现相应功能：");
+        //创建歌曲列表
+        LinkedList linkedList = new LinkedList<>();
+        //初始化列表
+        addListMusic(linkedList);
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            int number = scanner.nextInt();
+            switch(number) {
+            case 0 : 
+                addMusic(linkedList);
+                break;
+            case 1 :
+                setTop(linkedList);
+                break;
+            case 2 :
+                setBefore(linkedList);
+                break;
+            case 3 :
+                exit();
+                break;
+            default :
+                System.out.println("您输入的数字有误，请重新输入！");
+                break;
+            }   
+        }
+    }
+
+
+    //  模块一  ：初始化列表（歌曲信息类）
+    private static void addListMusic(LinkedList<Object> linkedList) {
+        // TODO Auto-generated method stub
+        linkedList.add("旧情人，我是时间的新欢");
+        linkedList.add("奔跑");
+        linkedList.add("感谢--龙井说唱");
+        linkedList.add("完美生活");
+        linkedList.add("执着");
+        linkedList.add("我们的时光---赵雷");
+        System.out.println("歌单中有歌曲   ："+linkedList.size()+" 首 ！");
+        System.out.println("歌单列表为：");
+        Iterator<Object> iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            Object object = (Object) iterator.next();
+            System.out.println(object);
+        }   
+    }
+
+    //模块二：   实现将歌曲添加至列表
+    private static void addMusic(LinkedList linkedList) {
+        System.out.print("请输入您要添加歌曲的名称：  ");
+        Scanner scanner = new Scanner(System.in);
+        String addMusicName = scanner.nextLine();
+        //若存在，则不输入，反之添加成功
+        if (((linkedList.indexOf(addMusicName)) ==-1)) {   
+            //不存在，则将歌曲添加至集合末尾
+            linkedList.addLast(addMusicName);
+            System.out.println("添加成功！");
+        }else {
+            System.out.println("您要添加得歌曲已在列表中！");
+        }
+        System.out.println("修改后歌单：");
+        for (Object object : linkedList) {
+            System.out.println(object);
+        }
+    }
+   
+
+  
+
+    //模块三   ：    将歌曲置顶（主持人类)
+    private static void setTop(LinkedList linkedList) {
+        System.out.print("请输入将要置顶歌曲的名称：");
+        Scanner scanner = new Scanner(System.in);
+        String topMusicName = scanner.nextLine();
+        //获得歌曲在列表中的位置
+        int position ;
+        position = linkedList.indexOf(topMusicName);
+        //判断是否已在第一位
+        if (position==0) {
+            System.out.println("该歌曲已在顶部！");
+        }if (position<0) {
+            System.out.println("歌名输入有误，不存在该歌曲！");
+        }else  {
+            linkedList.remove(topMusicName);
+            linkedList.addFirst(topMusicName);
+            System.out.println("置顶成功！");
+        }
+        System.out.println("修改后的歌单：");
+        for (Object object : linkedList) {
+            System.out.println(object);
+        }
+    }
+    //模块四   ：  将歌曲前移一位
+    private static void setBefore(LinkedList linkedList) {
+        System.out.print("请输入您要至前歌曲的名称：");
+        Scanner scanner = new Scanner(System.in);
+        String musicName = scanner.nextLine();
+        //查找指定歌曲位置
+        int position ;
+        position = linkedList.indexOf(musicName);
+        if (position==0) {
+            System.out.println("已到顶部，无法前移！");
+        }else if (position<0) {
+            System.out.println("该歌曲不在列表中，请重新输入：");
+        }else {
+            //歌曲存在，且不在第一位，进行前移
+            linkedList.remove(musicName);
+            linkedList.add(position-1, musicName);
+            System.out.println("前移一位成功！");
+            System.out.println("当前歌曲名单列表：");
+            Iterator iterator = linkedList.iterator();
+            while (iterator.hasNext()) {
+                Object object = (Object) iterator.next();
+                System.out.println(object);
+            }
+
+        }
+
+        //判断要至前歌曲是存在
+
+
+    }
+
+    //模块五： 实现退出系统
+    private static void exit() {
+        System.out.println("感谢您的使用！");
+        System.out.println("-----------您已退出系统-------------");
+        //退出程序
+        System.exit(0);
+    }
+
+}
+运行结果：
+---------------欢迎来到KTV点歌系统------------------
+0------添加歌曲至列表
+1------将歌曲至顶
+2------将歌曲前移一位
+3------退出系统
+4------将歌曲乱序
+请输入数字来实现相应功能：
+歌单中有歌曲   ：6 首 ！
+歌单列表为：
+旧情人，我是时间的新欢
+奔跑
+感谢--龙井说唱
+完美生活
+执着
+我们的时光---赵雷
+0
+请输入您要添加歌曲的名称：  可不可以
+添加成功！
+修改后歌单：
+旧情人，我是时间的新欢
+奔跑
+感谢--龙井说唱
+完美生活
+执着
+我们的时光---赵雷
+可不可以
+1
+请输入将要置顶歌曲的名称：执着
+置顶成功！
+修改后的歌单：
+执着
+旧情人，我是时间的新欢
+奔跑
+感谢--龙井说唱
+完美生活
+我们的时光---赵雷
+可不可以
+3
+感谢您的使用！
+-----------您已退出系统-------------
