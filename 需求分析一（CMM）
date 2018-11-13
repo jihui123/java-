@@ -1,0 +1,77 @@
+1.CMM最新标准
+第一级:初始级
+在初始级，企业一般不具备稳定的软件开发与维护的环境。常常在遇到问题的时候，就放弃原定的计划而只专注于编程与测试。
+第二级:可重复级
+在这一级，建立了管理软件项目的政策以及为贯彻执行这些政策而定的措施。基于过往的项目的经验来计划与管理新的项目。
+第三级:定义级
+在这一级，有关软件工程与管理工程的一个特定的、面对整个企业的软件开发与维护的过程的文件将被制订出来。同时，这些过程是集成到一个协调的整体。这就称为企业的标准软件过程。
+第四级:定量管理级
+在这一级，企业对产品与过程建立起定量的质量目标，同时在过程中加入规定得很清楚的连续的度量。作为企业的度量方案，要对所有项目的重要的过程活动进行生产率和质量的度量。软件产品因此具有可预期的高质量。
+第五级:(不断)优化级
+在这个等级，整个企业将会把重点放在对过程进行不断的优化。企业会采取主动去找出过程的弱点与长处，以达到预防缺陷的目标。同时，分析有关过程的有效性的资料，作出对新技术的成本与收益的分析，以及提出对过程进行修改的建议。
+2.哪些企业通过了CMM体系
+时间      公司名（英文）
+06/07/2013 Bleum Incorporated
+10/22/2013 China DataCom Corporation Limited
+05/19/2013 China Information Development INC., LTD, Shanghai
+11/15/2013 China Unicom System Integration Limited Corporation
+03/05/2013 Founder International (Beijing) Co., Ltd
+05/18/2013 Freeborders, Inc.
+11/21/2013 FUJIAN STRONGSOFT Co., Ltd.
+12/30/2013 Fujitsu (XI’AN) System Engineering Co., LTD
+09/08/2013 Guangdong Eshore Technology Co., LTD
+09/17/2013 Guangzhou Bona Information Technology Co., Ltd.
+11/08/2013 Hangzhou Nowwell Communication Technology Co., Ltd.
+05/31/2013 Hunan Creator Information Technologies Co., Ltd.
+08/02/2013 IBM
+08/02/2013 Infosys Limited and Infosys Technologies (China) Co. Limited
+08/22/2013 Jiangsu Fujitsu Telecommunications Technology Co., Ltd.
+08/20/2013 Jiangsu Joyque Information Industry Co., Ltd.
+10/31/2013 Jinan Ryouka Science and Technology Co. Ltd
+10/25/2013 Linkage Software Co., Ltd.
+06/27/2013 Merit Technology Co., Ltd.
+07/05/2013 MphasiS Limited
+11/28/2013 Nanjing LES Information Technology Co., Ltd.
+12/17/2013 NEC Soft (Jinan) Co. Ltd.
+03/06/2013 Objectiva Software Solutions
+02/04/2013 Pactera Technology Limited
+11/01/2013 PCCW SOLUTIONS LIMITED
+07/16/2013 People’s Bank of China
+04/19/2013 Sichuan FORNEW Intelligence Technology Co., LTD
+12/18/2013 Tata Consultancy Services Limited
+09/27/2013 Wonders Information Co., Ltd.
+07/19/2013 Wuhan Bill-JC Technology Co., Ltd.
+06/15/2013 Yantai Haiyi Software Co., Ltd
+以下为必应翻译后的中文企业名
+时间      公司名（中文）
+2013/6/7 博朗纳入
+2013/10/22 中国数据通信有限公司
+2013/5/19 中国信息发展有限公司上海
+2013/11/15 中国联通系统集成有限公司
+2013/3/5 创始人国际 (北京) 有限公司
+2013/5/18 福瑞股份有限公司
+2013/11/21 福建 STRONGSOFT 有限公司。
+2013/12/30 富士通 (西安) 系统工程股份有限公司
+2013/9/8 广东 Eshore 技术股份有限公司
+2013/9/17 广州博纳信息技术股份有限公司
+2013/11/8 杭州 Nowwell 通信技术有限公司。
+2013/5/31 湖南造物主信息技术股份有限公司
+2013/8/2 IBM
+2013/8/2 印孚瑟斯有限公司和印孚瑟斯技术 (中国) 有限公司
+2013/8/22 江苏富士通通信技术有限公司
+2013/8/20 江苏 Joyque 信息产业股份有限公司
+2013/10/31 济南 Ryouka 科技技术有限公司
+2013/10/25 联系软件有限公司。
+2013/6/27 优点技术有限公司。
+2013/7/5，着重有限公司
+2013/11/28 南京莱斯信息技术股份有限公司
+2013/12/17 NEC 软 (济南) 有限公司。
+2013/3/6 奥博杰天软件解决方案
+2013/2/4 Pactera 技术有限公司
+2013/11/1 电讯盈科解决方案有限公司
+2013/7/16 中国人民银行
+2013/4/19 四川单杠智能技术有限公司
+2013/12/18 塔塔咨询服务有限公司
+2013/9/27 奇迹信息股份有限公司
+2013/7/19 武汉比尔 JC 技术有限公司。
+2013/6/15 烟台海艺软件股份有限公司
