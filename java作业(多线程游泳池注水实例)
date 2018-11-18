@@ -1,0 +1,77 @@
+主要代码runCheckCallable()方法：
+public static List<Object> runCheckCallable(List<Callable<Object>> l, Boolean b)
+	{
+		FutureTask<Object> futureTask1 = new FutureTask<Object>(l.get(0));
+		// 将Callable写的任务封装到一个由执行者调度的FutureTask对象  
+		FutureTask<Object> futureTask2 = new FutureTask<Object>(l.get(1));  
+
+		// 创建线程池并返回ExecutorService实例  
+		ExecutorService executor = Executors.newFixedThreadPool(2);      
+
+		// 执行任务  
+		executor.execute(futureTask1);  
+		executor.execute(futureTask2);
+
+		while (true) 
+		{  
+			try {  
+				if(futureTask1.isDone() && futureTask2.isDone()){//  两个任务都完成  
+					System.out.println("Done");  
+
+					// 关闭线程池和服务   
+					executor.shutdown();
+
+					List<Object> Lobject = null;
+					Lobject.add(l.get(0));
+					Lobject.add(l.get(1));
+					return Lobject;
+
+				}  
+
+				if(!futureTask1.isDone()){ // 任务1没有完成，会等待，直到任务完成  
+					System.out.println("FutureTask1 output="+futureTask1.get());  
+				}  
+
+				System.out.println("Waiting for FutureTask2 to complete");  
+				String s = (String) futureTask2.get(20L, TimeUnit.MILLISECONDS);  
+				if(s !=null){  
+					System.out.println("FutureTask2 output="+s);  
+				}  
+			} 
+			catch (InterruptedException | ExecutionException e) 
+			{  
+				e.printStackTrace();  
+			}
+			catch(TimeoutException e)
+			{  
+				//do nothing  
+			}  
+		}
+
+	}
+
+}
+结果（部分代码）：
+放水3立方米，当前水量：88
+放水3立方米，当前水量：85
+注水5立方米，当前水量：90
+注水5立方米，当前水量：95
+放水3立方米，当前水量：92
+放水3立方米，当前水量：94
+注水5立方米，当前水量：94
+放水3立方米，当前水量：91
+注水5立方米，当前水量：96
+放水3立方米，当前水量：97
+注水5立方米，当前水量：97
+FutureTask1 output=success
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
+Waiting for FutureTask2 to complete
